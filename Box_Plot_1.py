@@ -1,19 +1,50 @@
-# Box Plot 1:
-# Here we are comparing between variables for each category
+# importing modules
 
-# library used: seaborn
-# https://seaborn.pydata.org/generated/seaborn.boxplot.html
+import numpy as np # linear algebra
+import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
+import matplotlib.pyplot as plt # library for creating visualizations
+import seaborn as sns # library for making statistical graphics. Built on top of matplotlib
+import statistics # calculating statistics of numeric data
 
+# load the iris data to a dataframe
 iris_data = pd.read_csv('/kaggle/input/iris-flower-dataset/IRIS.csv')
 
+# Box Plot 2:
+# Here we are comparing across levels of a categorical variable
+params = {'legend.fontsize': 9
+          , 'font.size': 16
+          , 'font.serif': ['Computer Modern Roman']
+          , 'axes.labelsize': 16
+          , 'xtick.labelsize': 17
+          , 'ytick.labelsize': 14
+         }
+plt.rcParams.update(params)
 
-iris_setosa = iris_data[iris_data['species'] == 'Iris-setosa']
-iris_virginica = iris_data[iris_data['species'] == 'Iris-virginica']
-iris_versicolor = iris_data[iris_data['species'] == 'Iris-versicolor']
 
-fig, (ax1, ax2, ax3) = plt.subplots(1,3,figsize=(25,7))
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
 
+ax = sns.boxplot(x="species", y="sepal_length",data=iris_data, palette="husl", ax = ax1).set_title("Sepal length across species",fontsize=17)
+ax = sns.boxplot(x="species", y="sepal_width",data=iris_data, palette="husl", ax = ax2).set_title("Sepal width across species",fontsize=17)
 
-ax = sns.boxplot(data=iris_setosa, orient="v", palette="Set3", ax = ax1).set_title("iris_setosa",fontsize=20)
-ax = sns.boxplot(data=iris_virginica, orient="v",palette="Set3", ax = ax2).set_title("iris_virginica",fontsize=20)
-ax = sns.boxplot(data=iris_versicolor, orient="v",palette="Set3", ax = ax3).set_title("iris_versicolor",fontsize=20)
+ax1.set_ylabel('')
+ax1.set_xlabel('')
+
+ax2.set_ylabel('')
+ax2.set_xlabel('')
+
+# Turn off tick labels
+#ax1.set_yticklabels([])
+#ax1.set_xticklabels([])
+
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
+
+ax = sns.boxplot(x="species", y="petal_length",data=iris_data, palette="husl", ax = ax1).set_title("Petal length across species",fontsize=17)
+ax = sns.boxplot(x="species", y="petal_width",data=iris_data, palette="husl", ax = ax2).set_title("Petal width across species",fontsize=17)
+
+ax1.set_ylabel('')
+ax1.set_xlabel('')
+
+ax2.set_ylabel('')
+ax2.set_xlabel('')
+
+plt.show()
