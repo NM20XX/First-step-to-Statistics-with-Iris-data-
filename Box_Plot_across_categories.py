@@ -9,7 +9,7 @@ import statistics # calculating statistics of numeric data
 # load the iris data to a dataframe
 iris_data = pd.read_csv('/kaggle/input/iris-flower-dataset/IRIS.csv')
 
-# Here we are comparing across levels of a categorical variable
+# Box Plot across categories:
 params = {'legend.fontsize': 9
           , 'font.size': 16
           , 'font.serif': ['Computer Modern Roman']
