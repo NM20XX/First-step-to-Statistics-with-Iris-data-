@@ -41,6 +41,7 @@ ax3.hist(iris_versicolor["sepal_length"],
 ax1.set_title("Iris setosa sepal length",fontsize=18)
 ax2.set_title("Iris virginica sepal length",fontsize=18)
 ax3.set_title("Iris versicolor sepal length",fontsize=18)
+
 # Set common labels
 fig.text(0.0, 0.5,  'Frequency',  ha='center', va='center', rotation='vertical')
 fig.text(0.5, 0.0, 'Sepal lenghts', ha='center', va='center', rotation='horizontal')
