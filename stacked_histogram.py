@@ -15,12 +15,11 @@ import statistics # calculating statistics of numeric data
 iris_data = pd.read_csv('/kaggle/input/iris-flower-dataset/IRIS.csv')
 
 params = {'legend.fontsize': 13
-          , 'font.size': 16
+          , 'font.size': 8
           , 'font.serif': ['Computer Modern Roman']
           , 'axes.labelsize': 16
-          , 'xtick.labelsize': 14
-          , 'ytick.labelsize': 14
-          , 'figure.figsize' : (8,5)
+          , 'xtick.labelsize': 12
+          , 'ytick.labelsize': 12
          }
 plt.rcParams.update(params)
 
@@ -34,7 +33,7 @@ names = ['iris_setosa', 'iris_virginica', 'iris_versicolor']
 
 plt.hist([iris_setosa["sepal_length"], iris_virginica["sepal_length"], 
           iris_versicolor["sepal_length"]],
-          stacked=True, color = colors, label=names,alpha=0.7) 
+          stacked=True, color = colors, label=names,alpha=0.5) 
 
 
 # Plot formatting
