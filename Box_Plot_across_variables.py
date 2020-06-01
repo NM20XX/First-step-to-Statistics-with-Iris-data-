@@ -1,3 +1,9 @@
+# Swarm plot is a good complement to a box plot. 
+# Here are they plotted together
+
+# library used: seaborn
+# https://seaborn.pydata.org/generated/seaborn.swarmplot.html
+
 # importing modules
 
 import numpy as np # linear algebra
@@ -9,27 +15,47 @@ import statistics # calculating statistics of numeric data
 # load the iris data to a dataframe
 iris_data = pd.read_csv('/kaggle/input/iris-flower-dataset/IRIS.csv')
 
-# Box Plot for comparing all the numeric variables for each category:
 params = {'legend.fontsize': 9
           , 'font.size': 16
           , 'font.serif': ['Computer Modern Roman']
           , 'axes.labelsize': 16
-          , 'xtick.labelsize': 14
-          , 'ytick.labelsize': 17
-          , 'figure.figsize' : (7,5)
+          , 'xtick.labelsize': 17
+          , 'ytick.labelsize': 14
          }
 plt.rcParams.update(params)
 
+#Comparison between 4 numeric variables for each category.
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
 
-iris_setosa = iris_data[iris_data['species'] == 'Iris-setosa']
-iris_virginica = iris_data[iris_data['species'] == 'Iris-virginica']
-iris_versicolor = iris_data[iris_data['species'] == 'Iris-versicolor']
+ax = sns.boxplot(x="species", y="sepal_length",data=iris_data, palette="Set3", ax = ax1).set_title("Sepal length across species",fontsize=17)
+ax = sns.swarmplot(x="species", y="sepal_length", data=iris_data, color="purple", ax = ax1)
 
-ax = sns.boxplot(data=iris_setosa, orient="v", palette="husl").set_title("iris_setosa",fontsize=20)
-plt.show()
+ax = sns.boxplot(x="species", y="sepal_width",data=iris_data, palette="Set3", ax = ax2).set_title("Sepal width across species",fontsize=17)
+ax = sns.swarmplot(x="species", y="sepal_width", data=iris_data, color="purple", ax = ax2)
 
-ax = sns.boxplot(data=iris_virginica, orient="v",palette="husl").set_title("iris_virginica",fontsize=20)
-plt.show()
 
-ax = sns.boxplot(data=iris_versicolor, orient="v",palette="husl").set_title("iris_versicolor",fontsize=20)
+ax1.set_ylabel('')
+ax1.set_xlabel('')
+
+ax2.set_ylabel('')
+ax2.set_xlabel('')
+
+# Turn off tick labels
+#ax1.set_yticklabels([])
+#ax1.set_xticklabels([])
+
+fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
+
+ax = sns.boxplot(x="species", y="petal_length",data=iris_data, palette="Set3", ax = ax1,).set_title("Petal length across species",fontsize=17)
+ax = sns.swarmplot(x="species", y="petal_length", data=iris_data, color="purple", ax = ax1)
+
+ax = sns.boxplot(x="species", y="petal_width",data=iris_data, palette="Set3", ax = ax2).set_title("Petal width across species",fontsize=17)
+ax = sns.swarmplot(x="species", y="petal_width", data=iris_data, color="purple", ax = ax2)
+
+ax1.set_ylabel('')
+ax1.set_xlabel('')
+
+ax2.set_ylabel('')
+ax2.set_xlabel('')
+
 plt.show()
