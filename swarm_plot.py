@@ -24,13 +24,12 @@ params = {'legend.fontsize': 9
          }
 plt.rcParams.update(params)
 
-
 fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
 
-ax = sns.boxplot(x="species", y="sepal_length",data=iris_data, palette="husl", ax = ax1).set_title("Sepal length across species",fontsize=17)
+ax = sns.boxplot(x="species", y="sepal_length",data=iris_data, palette="Set3", ax = ax1).set_title("Sepal length across species",fontsize=17)
 ax = sns.swarmplot(x="species", y="sepal_length", data=iris_data, color="purple", ax = ax1)
 
-ax = sns.boxplot(x="species", y="sepal_width",data=iris_data, palette="husl", ax = ax2).set_title("Sepal width across species",fontsize=17)
+ax = sns.boxplot(x="species", y="sepal_width",data=iris_data, palette="Set3", ax = ax2).set_title("Sepal width across species",fontsize=17)
 ax = sns.swarmplot(x="species", y="sepal_width", data=iris_data, color="purple", ax = ax2)
 
 
@@ -46,14 +45,11 @@ ax2.set_xlabel('')
 
 fig, (ax1, ax2) = plt.subplots(1,2,figsize=(16,5))
 
-ax = sns.boxplot(x="species", y="petal_length",data=iris_data, palette="husl", ax = ax1).set_title("Petal length across species",fontsize=17)
+ax = sns.boxplot(x="species", y="petal_length",data=iris_data, palette="Set3", ax = ax1,).set_title("Petal length across species",fontsize=17)
 ax = sns.swarmplot(x="species", y="petal_length", data=iris_data, color="purple", ax = ax1)
 
-
-ax = sns.boxplot(x="species", y="petal_width",data=iris_data, palette="husl", ax = ax2).set_title("Petal width across species",fontsize=17)
+ax = sns.boxplot(x="species", y="petal_width",data=iris_data, palette="Set3", ax = ax2).set_title("Petal width across species",fontsize=17)
 ax = sns.swarmplot(x="species", y="petal_width", data=iris_data, color="purple", ax = ax2)
-
-
 
 ax1.set_ylabel('')
 ax1.set_xlabel('')
