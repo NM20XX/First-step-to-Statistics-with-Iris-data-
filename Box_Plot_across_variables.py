@@ -1,5 +1,4 @@
 # importing modules
-
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import matplotlib.pyplot as plt # library for creating visualizations
@@ -9,7 +8,7 @@ import statistics # calculating statistics of numeric data
 # load the iris data to a dataframe
 iris_data = pd.read_csv('/kaggle/input/iris-flower-dataset/IRIS.csv')
 
-#Comparison between 4 numeric variables for each category.
+# plot parameter set
 params = {'legend.fontsize': 9
           , 'font.size': 16
           , 'font.serif': ['Computer Modern Roman']
@@ -20,6 +19,8 @@ params = {'legend.fontsize': 9
          }
 plt.rcParams.update(params)
 
+
+# Comparison between 4 numeric variables for each category
 
 iris_setosa = iris_data[iris_data['species'] == 'Iris-setosa']
 iris_virginica = iris_data[iris_data['species'] == 'Iris-virginica']
@@ -33,3 +34,4 @@ plt.show()
 
 ax = sns.boxplot(data=iris_versicolor, orient="v",palette="Set3").set_title("Iris versicolor",fontsize=15)
 plt.show()
+
